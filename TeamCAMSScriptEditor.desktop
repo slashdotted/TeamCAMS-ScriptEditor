@@ -3,6 +3,6 @@ Type=Application
 Name=TeamCAMSScriptEditor
 Comment=TeamCAMS Script Editor
 Exec=TeamCAMSScriptEditor
-Icon=teamcamsscripteditor
+Icon=TeamCAMSScriptEditor
 Categories=Utility;
 Terminal=false
