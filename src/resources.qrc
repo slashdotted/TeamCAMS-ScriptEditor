@@ -1,0 +1,29 @@
+<RCC>
+    <qresource prefix="/"/>
+    <qresource prefix="/images">
+        <file alias="Bolt.png">images/Bolt.png</file>
+        <file alias="Cursor.png">images/Cursor.png</file>
+        <file alias="Duplicate.png">images/Duplicate.png</file>
+        <file alias="Entrance.png">images/Entrance.png</file>
+        <file alias="File.png">images/File.png</file>
+        <file alias="Gear.png">images/Gear.png</file>
+        <file alias="Home.png">images/Home.png</file>
+        <file alias="icon.png">images/icon.png</file>
+        <file alias="logo.svg">images/logo.svg</file>
+        <file alias="Resize.png">images/Resize.png</file>
+        <file alias="Star.png">images/Star.png</file>
+        <file alias="Triangle.png">images/Triangle.png</file>
+        <file alias="ReloadInv.png">images/ReloadInv.png</file>
+        <file alias="Reload.png">images/Reload.png</file>
+        <file alias="Upload.png">images/Upload.png</file>
+        <file alias="Download.png">images/Download.png</file>
+        <file alias="Plus.png">images/Plus.png</file>
+        <file alias="denied.png">images/denied.png</file>
+        <file alias="eye.png">images/eye.png</file>
+        <file alias="mail.png">images/mail.png</file>
+        <file alias="popup.png">images/popup.png</file>
+        <file alias="popupdata.png">images/popupdata.png</file>
+        <file alias="check.svg">images/check.svg</file>
+        <file alias="help.png">images/help.png</file>
+    </qresource>
+</RCC>

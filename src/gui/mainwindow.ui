@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1035</width>
+    <height>859</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>480</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>TeamCAMS Editor</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resources.qrc">
+    <normaloff>:/images/icon.png</normaloff>:/images/icon.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="3" column="0">
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+      <widget class="QTableView" name="tableView"/>
+      <widget class="QFrame" name="frame">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Shape::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Shadow::Raised</enum>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QWidget" name="widget" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">    background: qlineargradient(   spread:pad,  x1:0, y1:0, x2:1, y2:0,  stop:0 rgba(0, 0, 0, 0),   stop:1 palette(highlight));</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="font">
+          <font>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>TeamCAMS Script Editor 2026.8</string>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QWidget" name="timelineContainer" native="true"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;h3&gt;Event Timeline&lt;/h3&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1035</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionNew_script"/>
+    <addaction name="actionLoad_script"/>
+    <addaction name="actionSave_script"/>
+    <addaction name="actionSave_script_as"/>
+    <addaction name="separator"/>
+    <addaction name="actionValidate_script"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionAbout_TeamCAMS_Script_Editor"/>
+    <addaction name="actionHelp"/>
+    <addaction name="separator"/>
+    <addaction name="actionRun_tests"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <widget class="QToolBar" name="paletteToolBar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QToolBar {
+   background-color: rgba(128, 128, 128, 0.1);
+   border: 1px solid rgba(128, 128, 128, 0.2);
+   border-radius: 8px;
+   padding: 4px;
+   spacing: 6px;
+}
+QToolBar QToolButton {
+   background-color: transparent;
+   border: none;
+   border-radius: 4px;
+   padding: 6px;
+   width: 100%;
+  min-width: 130px;
+  padding: 5px;
+}
+
+QToolBar QToolButton:hover {
+   background-color: rgba(128, 128, 128, 0.25);
+}
+
+QToolBar QToolButton:pressed, QToolBar QToolButton:checked {
+   background-color: rgba(128, 128, 128, 0.4);
+}
+
+QToolBar::separator {
+   width: 1px;
+   height: 1px;
+   background-color: rgba(128, 128, 128, 0.3);
+   margin: 4px;
+}
+</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::ToolBarArea::RightToolBarArea</set>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Orientation::Vertical</enum>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionScript"/>
+   <addaction name="actionError"/>
+   <addaction name="actionInterface"/>
+   <addaction name="actionAdaptive"/>
+   <addaction name="actionMessage"/>
+   <addaction name="actionAccess"/>
+   <addaction name="actionFilter"/>
+   <addaction name="actionCode"/>
+   <addaction name="actionDuration"/>
+   <addaction name="actionControl"/>
+   <addaction name="actionQuestion"/>
+   <addaction name="actionAssistance"/>
+   <addaction name="actionactionPopup"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionError">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/Bolt.png</normaloff>:/images/Bolt.png</iconset>
+   </property>
+   <property name="text">
+    <string>Error</string>
+   </property>
+   <property name="toolTip">
+    <string>Add error element</string>
+   </property>
+  </action>
+  <action name="actionAdaptive">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/Resize.png</normaloff>:/images/Resize.png</iconset>
+   </property>
+   <property name="text">
+    <string>Adaptive</string>
+   </property>
+   <property name="toolTip">
+    <string>Add adaptive element</string>
+   </property>
+  </action>
+  <action name="actionInterface">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/Cursor.png</normaloff>:/images/Cursor.png</iconset>
+   </property>
+   <property name="text">
+    <string>Interface</string>
+   </property>
+   <property name="toolTip">
+    <string>Add interface element</string>
+   </property>
+  </action>
+  <action name="actionCode">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/Gear.png</normaloff>:/images/Gear.png</iconset>
+   </property>
+   <property name="text">
+    <string>Code</string>
+   </property>
+   <property name="toolTip">
+    <string>Add code element</string>
+   </property>
+  </action>
+  <action name="actionDuration">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/Entrance.png</normaloff>:/images/Entrance.png</iconset>
+   </property>
+   <property name="text">
+    <string>Duration</string>
+   </property>
+   <property name="toolTip">
+    <string>Add duration element</string>
+   </property>
+  </action>
+  <action name="actionScript">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/File.png</normaloff>:/images/File.png</iconset>
+   </property>
+   <property name="text">
+    <string>Script</string>
+   </property>
+   <property name="toolTip">
+    <string>Add script element</string>
+   </property>
+  </action>
+  <action name="actionNew_script">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/Plus.png</normaloff>:/images/Plus.png</iconset>
+   </property>
+   <property name="text">
+    <string>New script</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionLoad_script">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/Upload.png</normaloff>:/images/Upload.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open script..</string>
+   </property>
+   <property name="toolTip">
+    <string>Open script..</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSave_script">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/Download.png</normaloff>:/images/Download.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save script</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSave_script_as">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/Download.png</normaloff>:/images/Download.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save script as...</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionControl">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/Triangle.png</normaloff>:/images/Triangle.png</iconset>
+   </property>
+   <property name="text">
+    <string>Control</string>
+   </property>
+   <property name="toolTip">
+    <string>Add control element</string>
+   </property>
+  </action>
+  <action name="actionQuestion">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/Star.png</normaloff>:/images/Star.png</iconset>
+   </property>
+   <property name="text">
+    <string>Question</string>
+   </property>
+   <property name="toolTip">
+    <string>Add question element</string>
+   </property>
+  </action>
+  <action name="actionAbout_TeamCAMS_Script_Editor">
+   <property name="text">
+    <string>About TeamCAMS Script Editor</string>
+   </property>
+  </action>
+  <action name="actionAssistance">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/Home.png</normaloff>:/images/Home.png</iconset>
+   </property>
+   <property name="text">
+    <string>Assistance</string>
+   </property>
+   <property name="toolTip">
+    <string>Add assistance element</string>
+   </property>
+  </action>
+  <action name="actionRemove_event">
+   <property name="text">
+    <string>Remove event</string>
+   </property>
+   <property name="toolTip">
+    <string>Remove selected event</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/ReloadInv.png</normaloff>:/images/ReloadInv.png</iconset>
+   </property>
+   <property name="text">
+    <string>Undo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/Reload.png</normaloff>:/images/Reload.png</iconset>
+   </property>
+   <property name="text">
+    <string>Redo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+Z</string>
+   </property>
+  </action>
+  <action name="actionFilter">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/denied.png</normaloff>:/images/denied.png</iconset>
+   </property>
+   <property name="text">
+    <string>Filter</string>
+   </property>
+   <property name="toolTip">
+    <string>Add a communication filter item</string>
+   </property>
+  </action>
+  <action name="actionRun_tests">
+   <property name="text">
+    <string>Run automated tests</string>
+   </property>
+  </action>
+  <action name="actionAccess">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/eye.png</normaloff>:/images/eye.png</iconset>
+   </property>
+   <property name="text">
+    <string>Access</string>
+   </property>
+   <property name="toolTip">
+    <string>Add access change element</string>
+   </property>
+  </action>
+  <action name="actionMessage">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/mail.png</normaloff>:/images/mail.png</iconset>
+   </property>
+   <property name="text">
+    <string>Message</string>
+   </property>
+   <property name="toolTip">
+    <string>Add message element</string>
+   </property>
+  </action>
+  <action name="actionDuplicateEvent">
+   <property name="text">
+    <string>Duplicate Event</string>
+   </property>
+   <property name="toolTip">
+    <string>Duplicate Event</string>
+   </property>
+  </action>
+  <action name="actionactionPopup">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/popup.png</normaloff>:/images/popup.png</iconset>
+   </property>
+   <property name="text">
+    <string>Pop-up</string>
+   </property>
+   <property name="toolTip">
+    <string>Add a popup display event</string>
+   </property>
+  </action>
+  <action name="actionValidate_script">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/check.svg</normaloff>:/images/check.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Validate script</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/images/help.png</normaloff>:/images/help.png</iconset>
+   </property>
+   <property name="text">
+    <string>Help</string>
+   </property>
+   <property name="toolTip">
+    <string>Open the help page</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
