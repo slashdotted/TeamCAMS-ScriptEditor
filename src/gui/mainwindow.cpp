@@ -587,14 +587,14 @@ QStringList MainWindow::otherQuestionIds(Element *thiselement) {
 }
 
 void MainWindow::updateActionsAndTitle() {
-  setWindowTitle(QString("TeamCAMS Script Editor - %1%2")
-                     .arg(m_filename == "" ? "untitled.xml" : m_filename)
-                     .arg(m_modified_flag ? "*" : ""));
-  ui->actionSave_script->setEnabled(m_filename != "" && m_modified_flag);
-  ui->actionUndo->setEnabled(canUndo());
-  ui->actionRedo->setEnabled(canRedo());
-  ui->actionNew_script->setEnabled(!m_new_flag);
-  ui->actionValidate_script->setEnabled(m_eventlist.count() > 0);
+    setWindowTitle(QString("%1%2")
+                       .arg(m_filename == "" ? "untitled.xml" : m_filename)
+                       .arg(m_modified_flag ? "*" : ""));
+    ui->actionSave_script->setEnabled(m_filename != "" && m_modified_flag);
+    ui->actionUndo->setEnabled(canUndo());
+    ui->actionRedo->setEnabled(canRedo());
+    ui->actionNew_script->setEnabled(!m_new_flag);
+    ui->actionValidate_script->setEnabled(m_eventlist.count() > 0);
 }
 
 void MainWindow::saveDataToFile() {
