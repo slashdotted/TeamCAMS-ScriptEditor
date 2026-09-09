@@ -163,8 +163,8 @@ MainWindow::MainWindow(QWidget *parent)
   connect(ui->actionDuplicateEvent, &QAction::triggered, this,
           &MainWindow::onDuplicateEvent);
   connect(ui->actionHelp, &QAction::triggered, [=]() {
-    QString link = "https://syscall.org/doku.php/teamcamseditor";
-    QDesktopServices::openUrl(QUrl(link));
+      QString link = "https://teamcams.syscall.org";
+      QDesktopServices::openUrl(QUrl(link));
   });
   ui->tableView->setDragEnabled(true);
   resetSnapshots();
