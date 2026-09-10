@@ -31,11 +31,11 @@ QuestionElementEditor::QuestionElementEditor(
 
   ui->duplicateErrorLabel->setVisible(false);
   if (m_element->parameters().contains("id")) {
-    QString qid{m_element->parameters()["id"].toString()};
-    ui->qid_edit->setText(qid);
-    if (!qid.isEmpty() && m_existingquestionids.contains(qid)) {
-      ui->duplicateErrorLabel->setVisible(true);
-    }
+      QString qid{m_element->parameters()["id"].toString().toLower()};
+      ui->qid_edit->setText(qid);
+      if (!qid.isEmpty() && m_existingquestionids.contains(qid)) {
+          ui->duplicateErrorLabel->setVisible(true);
+      }
   }
 
   if (m_element->parameters().contains("text")) {
@@ -55,14 +55,15 @@ void QuestionElementEditor::onQuestionIdChanged(const QString &qid) {
     m_element->parameters().remove("id");
     emit dataChanged(m_element);
   } else {
-    m_element->parameters()["id"] = qid;
-    if (m_existingquestionids.contains(qid)) {
-      ui->duplicateErrorLabel->setVisible(true);
-    } else {
-      ui->duplicateErrorLabel->setVisible(false);
-      m_element->parameters()["id"] = qid;
-      emit dataChanged(m_element);
-    }
+      auto questionId{qid.toLower()};
+      m_element->parameters()["id"] = questionId;
+      if (m_existingquestionids.contains(questionId)) {
+          ui->duplicateErrorLabel->setVisible(true);
+      } else {
+          ui->duplicateErrorLabel->setVisible(false);
+          m_element->parameters()["id"] = questionId;
+          emit dataChanged(m_element);
+      }
   }
 }
 

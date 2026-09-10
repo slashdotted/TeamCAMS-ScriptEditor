@@ -579,7 +579,7 @@ QStringList MainWindow::otherQuestionIds(Element *thiselement) {
     if (e->type() == ElementType::QuestionElementType) {
       if (e->parameters().contains("id") && !e->parameters()["id"].isNull() &&
           !e->parameters()["id"].toString().trimmed().isEmpty()) {
-        lst.append(e->parameters()["id"].toString());
+          lst.append(e->parameters()["id"].toString().toLower());
       }
     }
   }
