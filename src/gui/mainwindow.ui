@@ -79,7 +79,7 @@
           <string notr="true">background: transparent;</string>
          </property>
          <property name="text">
-          <string>TeamCAMS Script Editor 2026.8</string>
+          <string>TeamCAMS Script Editor 2026.9</string>
          </property>
          <property name="scaledContents">
           <bool>true</bool>

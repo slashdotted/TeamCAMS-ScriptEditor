@@ -496,8 +496,8 @@
     </message>
     <message>
         <location filename="../src/gui/mainwindow.ui" line="82"/>
-        <source>TeamCAMS Script Editor 2026.8</source>
-        <translation>Editor de secuencias de comandos TeamCAMS 2026.8</translation>
+        <source>TeamCAMS Script Editor 2026.9</source>
+        <translation>Editor de secuencias de comandos TeamCAMS 2026.9</translation>
     </message>
     <message>
         <location filename="../src/gui/mainwindow.ui" line="113"/>

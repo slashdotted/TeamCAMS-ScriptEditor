@@ -163,8 +163,8 @@ MainWindow::MainWindow(QWidget *parent)
   connect(ui->actionDuplicateEvent, &QAction::triggered, this,
           &MainWindow::onDuplicateEvent);
   connect(ui->actionHelp, &QAction::triggered, [=]() {
-    QString link = "https://syscall.org/doku.php/teamcamseditor";
-    QDesktopServices::openUrl(QUrl(link));
+      QString link = "https://teamcams.syscall.org";
+      QDesktopServices::openUrl(QUrl(link));
   });
   ui->tableView->setDragEnabled(true);
   resetSnapshots();
@@ -579,7 +579,7 @@ QStringList MainWindow::otherQuestionIds(Element *thiselement) {
     if (e->type() == ElementType::QuestionElementType) {
       if (e->parameters().contains("id") && !e->parameters()["id"].isNull() &&
           !e->parameters()["id"].toString().trimmed().isEmpty()) {
-        lst.append(e->parameters()["id"].toString());
+          lst.append(e->parameters()["id"].toString().toLower());
       }
     }
   }
@@ -587,14 +587,14 @@ QStringList MainWindow::otherQuestionIds(Element *thiselement) {
 }
 
 void MainWindow::updateActionsAndTitle() {
-  setWindowTitle(QString("TeamCAMS Script Editor - %1%2")
-                     .arg(m_filename == "" ? "untitled.xml" : m_filename)
-                     .arg(m_modified_flag ? "*" : ""));
-  ui->actionSave_script->setEnabled(m_filename != "" && m_modified_flag);
-  ui->actionUndo->setEnabled(canUndo());
-  ui->actionRedo->setEnabled(canRedo());
-  ui->actionNew_script->setEnabled(!m_new_flag);
-  ui->actionValidate_script->setEnabled(m_eventlist.count() > 0);
+    setWindowTitle(QString("%1%2")
+                       .arg(m_filename == "" ? "untitled.xml" : m_filename)
+                       .arg(m_modified_flag ? "*" : ""));
+    ui->actionSave_script->setEnabled(m_filename != "" && m_modified_flag);
+    ui->actionUndo->setEnabled(canUndo());
+    ui->actionRedo->setEnabled(canRedo());
+    ui->actionNew_script->setEnabled(!m_new_flag);
+    ui->actionValidate_script->setEnabled(m_eventlist.count() > 0);
 }
 
 void MainWindow::saveDataToFile() {
